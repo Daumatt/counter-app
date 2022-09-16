@@ -1,25 +1,40 @@
-import logo from './logo.svg';
+import Stricking from './Stricking';
 import './App.css';
-
+import { Routes, Route, Link}  from "react-router-dom";
+import Counter from './Counter'
 function App() {
+  // const greet = "Good Afternoon, folks!"
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Welcome to react-router</h1>
+      <Counter/>
+      {/* <Stricking/> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="todo" element={<Todo />} />
+      </Routes>
+      {/* <header className="App-header">
+        <Stricking />
+        </header> */}
     </div>
   );
+}
+
+function Home() {
+  return(
+    <>
+      <nav>
+        <Link to="/todo"></Link>
+      </nav>
+    </>
+  )
+}
+function Todo() {
+  return(
+    <>
+      <Stricking />
+    </>
+  )
 }
 
 export default App;
